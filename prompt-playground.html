@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Playground</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/playground.css" />
+</head>
+
+<body class="overflow-hidden bg-[#f1f3f8]">
+
+<!-- ═══════════════════════════════════════════════════════
+     ROOT — sidebar + main content
+═══════════════════════════════════════════════════════ -->
+<div class="fixed inset-0 flex">
+
+<!-- ── CRM Left Sidebar ────────────────────────────────── -->
+<aside class="crm-sidebar">
+
+  <!-- Logo row -->
+  <div class="crm-logo-row">
+    <div class="crm-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+           fill="#c23469" stroke="none">
+        <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+      </svg>
+      <span class="crm-logo-name">Vitos</span>
+    </div>
+    <button class="crm-collapse-btn" title="Collapse sidebar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Workspace selector -->
+  <div class="crm-workspace">
+    <span>Democrm - Indian</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6 9 6 6 6-6"/>
+    </svg>
+  </div>
+
+  <!-- Nav -->
+  <nav class="crm-nav playground-scroll">
+
+    <div class="crm-nav-group">
+      <span class="crm-nav-label">Build</span>
+      <a class="crm-nav-item active" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/>
+          <path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/>
+        </svg>
+        AI Agents
+      </a>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+        AOP
+      </a>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/>
+          <rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>
+        </svg>
+        Integrations
+      </a>
+    </div>
+
+    <div class="crm-nav-group">
+      <span class="crm-nav-label">Resources</span>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/>
+          <path d="M3 12A9 3 0 0 0 21 12"/>
+        </svg>
+        Schema
+      </a>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+        </svg>
+        Knowledge Base
+      </a>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0H5a2 2 0 0 1-2-2V9m6 5h10a2 2 0 0 0 2-2V9m0 0H3"/>
+        </svg>
+        Channels
+      </a>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+        </svg>
+        Providers
+      </a>
+    </div>
+
+    <div class="crm-nav-group">
+      <span class="crm-nav-label">Operate</span>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/>
+        </svg>
+        Live
+      </a>
+      <a class="crm-nav-item" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+        </svg>
+        My Wallet
+      </a>
+    </div>
+
+  </nav>
+
+  <!-- Bottom: Resource link -->
+  <div class="crm-sidebar-foot">
+    <a class="crm-nav-item" href="#">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>
+      </svg>
+      Resource
+    </a>
+  </div>
+
+</aside>
+<!-- /crm-sidebar -->
+
+<!-- ── Right: breadcrumb + playground card ────────────── -->
+<div class="flex-1 flex flex-col overflow-hidden p-2 pl-2 gap-1.5">
+
+  <!-- Breadcrumb -->
+  <div class="crm-breadcrumb">
+    <a class="crm-bc-link" href="#">Democrm - Indian</a>
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+         fill="none" stroke="#c5cce0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+    <a class="crm-bc-link" href="#">AI Agents</a>
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+         fill="none" stroke="#c5cce0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+    <span class="crm-bc-active">test_bolt</span>
+  </div>
+
+  <!-- Playground card -->
+  <div class="flex-1 rounded-xl shadow-sm border border-gray-200 flex flex-col bg-white overflow-hidden">
+
+  <!-- ══ HEADER — full width ══════════════════════════════ -->
+  <header class="flex items-center justify-between px-4 h-[52px] border-b border-[#e0e3ed] shrink-0 relative">
+
+    <!-- Left: back + title -->
+    <div class="flex items-center gap-2.5">
+      <button
+        title="Go back"
+        class="inline-flex items-center justify-center text-[#757b8d] hover:text-[#343b4f] hover:bg-[#f0f2f7] rounded-md p-1.5 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
+        </svg>
+      </button>
+
+      <div class="flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+             fill="#c23469" stroke="#c23469" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+        </svg>
+        <span class="text-[14px] font-semibold text-[#343b4f] tracking-[-0.01em]">Prompt Playground</span>
+      </div>
+    </div>
+
+    <!-- Center: Write / Test toggle -->
+    <div class="absolute left-1/2 -translate-x-1/2 flex items-center bg-[#f0f2f7] rounded-full p-[3px] gap-[2px]">
+      <button id="tab-write" data-mode="write"
+        class="mode-btn flex items-center gap-1.5 px-4 py-[6px] rounded-full text-[13px] font-medium transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+          <path d="m15 5 4 4"/>
+        </svg>
+        Write Prompt
+      </button>
+
+      <button id="tab-test" data-mode="test"
+        class="mode-btn flex items-center gap-1.5 px-4 py-[6px] rounded-full text-[13px] font-medium transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/>
+          <path d="M8.5 2h7"/><path d="M7 16h10"/>
+        </svg>
+        Test Prompt
+      </button>
+    </div>
+
+    <!-- Right: model dropdowns -->
+    <div class="flex items-center gap-2">
+      <div class="relative">
+        <button class="pill-btn">
+          <span class="w-[7px] h-[7px] rounded-full bg-[#22c55e] shrink-0"></span>
+          <span class="font-medium">Claude</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+               fill="none" stroke="#aeb9e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </button>
+      </div>
+      <div class="relative">
+        <button class="pill-btn">
+          <span class="font-medium">Claude Haiku 4.5 (Fast)</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+               fill="none" stroke="#aeb9e1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══ BODY — flex row: editor | divider | sidebar ═══════ -->
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- ── Write mode body ─────────────────────────────── -->
+    <div id="write-body" class="flex flex-1 overflow-hidden">
+
+      <!-- Editor column -->
+      <div class="flex flex-col flex-1 overflow-hidden">
+        <textarea
+          id="prompt-textarea"
+          placeholder="Write your system prompt here…"
+          class="flex-1 resize-none outline-none px-5 py-4 bg-white playground-scroll"
+        ># 1. ROLE &amp; OBJECTIVE
+
+You are a helpful AI assistant. Write your system prompt here.
+
+**END OF SYSTEM PROMPT**</textarea>
+
+        <!-- Editor footer: char count + save -->
+        <div class="flex items-center justify-end gap-3 px-4 h-[52px] border-t border-[#e0e3ed] shrink-0 bg-white">
+          <span id="char-count" class="text-[11px] text-[#aeb9e1] font-medium tabular-nums"></span>
+          <button id="save-btn" class="save-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/>
+              <path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/>
+              <path d="M7 3v4a1 1 0 0 0 1 1h7"/>
+            </svg>
+            Save Prompt
+          </button>
+        </div>
+      </div>
+
+      <!-- Vertical divider -->
+      <div class="w-px bg-[#e0e3ed] shrink-0"></div>
+
+      <!-- Sidebar column — content rendered by js/sidebar.js + tabs/*.js -->
+      <div class="flex-[3] min-w-[320px] max-w-[480px] shrink-0 flex flex-col overflow-hidden">
+
+        <!-- Tab bar injected by sidebar.js -->
+        <div id="sidebar-tab-bar" class="flex items-end border-b border-[#e0e3ed] shrink-0 min-h-[44px]"></div>
+
+        <!-- Tab content (populated by active tab module) -->
+        <div id="sidebar-content" class="flex flex-col flex-1 overflow-hidden"></div>
+
+      </div><!-- /sidebar column -->
+    </div><!-- /#write-body -->
+
+    <!-- ── Test mode wizard body ────────────────────────── -->
+    <div id="test-body" class="hidden flex-1 overflow-hidden"></div>
+
+    <!-- ── Enhance mode (suggestions + prompt split) ─────── -->
+    <div id="enhance-body" class="hidden flex-1 flex flex-col overflow-hidden"></div>
+
+  </div><!-- /body row -->
+
+
+</div><!-- /card -->
+</div><!-- /right col -->
+</div><!-- /root -->
+
+<!-- ── JS: data first, then tab modules, then core ─────── -->
+<script src="data/constants.js"></script>
+<script src="tabs/refine.js"></script>
+<script src="tabs/optimize.js"></script>
+<script src="tabs/history.js"></script>
+<script src="tabs/test.js"></script>
+<script src="js/header.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/editor.js"></script>
+
+</body>
+</html>
